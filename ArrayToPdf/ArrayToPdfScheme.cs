@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MigraDoc.DocumentObjectModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -15,8 +16,11 @@ namespace RandomSolutions
 
 
         public string Title;
+        public string Logo;
         public string Author;
         public string Subject;
+
+        public Color? TableHeaderColor { get; set; }
 
         public ArrayToPdfOrientations PageOrientation = ArrayToPdfOrientations.Landscape;
         public ArrayToPdfFormats PageFormat = ArrayToPdfFormats.A4;

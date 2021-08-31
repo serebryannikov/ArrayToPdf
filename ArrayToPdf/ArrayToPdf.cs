@@ -132,6 +132,12 @@ namespace RandomSolutions
                     case "PAGES":
                         paragraph.AddNumPagesField();
                         break;
+                    case "IMAGE":
+                        if (!string.IsNullOrWhiteSpace(scheme.Logo))
+                        {
+                            paragraph.AddImage(scheme.Logo);
+                        }
+                        break;
                     default:
                         paragraph.AddText(part);
                         break;
@@ -162,7 +168,7 @@ namespace RandomSolutions
             row.BottomPadding = 2;
             row.HeadingFormat = true;
             row.Format.Font.Bold = true;
-            row.Shading.Color = Colors.LightGray;
+            row.Shading.Color = scheme.TableHeaderColor.HasValue ? scheme.TableHeaderColor.Value : Colors.LightGray;
             row.VerticalAlignment = VerticalAlignment.Center;
             scheme.Columns.ForEach(x => row.Cells[x.Index].AddParagraph(x.Name ?? string.Empty));
 
